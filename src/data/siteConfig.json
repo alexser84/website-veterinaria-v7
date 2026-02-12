@@ -1,0 +1,31 @@
+{
+    "negocio": {
+        "nombre": "VetPro Elite",
+        "tagline": "Excelencia en Salud Animal y Nutrición Premium",
+        "tipo": "tienda_veterinaria_profesional",
+        "años_experiencia": 15,
+        "certificaciones": [
+            "SAG",
+            "ISO 9001",
+            "CMVCH"
+        ],
+        "ciudad": "Santiago",
+        "direccion": "Av. Las Condes 1234, Las Condes",
+        "telefono": "+56 2 2345 6789",
+        "telefono_tienda": "+56 2 2345 6780",
+        "telefono_vet": "+56 2 2345 6781",
+        "telefono_urgencias": "+56 9 1234 5678",
+        "horario_semana": "09:00 - 20:00",
+        "horario_sabado": "10:00 - 18:00",
+        "email": "contacto@vetproelite.cl"
+    },
+    "estilo": {
+        "paleta": "corporate",
+        "nivel": "premium"
+    },
+    "ecommerce": {
+        "tipo_productos": "premium",
+        "envio_express": true,
+        "asesoria_veterinaria": true
+    }
+}

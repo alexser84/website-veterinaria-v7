@@ -1,0 +1,135 @@
+---
+import siteConfig from '../data/siteConfig.json';
+
+const { negocio } = siteConfig;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[var(--dark)] text-white pt-24 pb-12 border-t border-white/5">
+  <div class="container">
+    <div class="grid lg:grid-cols-5 gap-16 mb-20">
+      <!-- Info Empresa -->
+      <div class="lg:col-span-2">
+        <a href="/" class="flex flex-col mb-8">
+          <span class="text-3xl font-black text-white leading-tight tracking-tighter">
+            {negocio.nombre.split(' ')[0]}<span class="text-[var(--secondary)]">{negocio.nombre.split(' ').slice(1).join(' ')}</span>
+          </span>
+          <span class="text-xs uppercase tracking-widest font-bold opacity-60">
+            {negocio.tagline}
+          </span>
+        </a>
+        <p class="text-lg opacity-60 mb-10 max-w-sm">
+          Centro veterinario y tienda premium con {negocio.años_experiencia} años de excelencia en el cuidado animal. La salud de tu mascota es nuestra mayor prioridad.
+        </p>
+        
+        <div class="flex gap-6 items-center opacity-40 grayscale hover:grayscale-0 transition-all">
+          <span class="font-black italic">SAG</span>
+          <span class="font-black italic">ISO 9001</span>
+          <span class="font-black italic">CMVCH</span>
+        </div>
+        
+        <div class="flex gap-4 mt-10">
+          <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[var(--primary)] transition-all">
+            <i data-lucide="facebook" class="w-5 h-5"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[var(--primary)] transition-all">
+            <i data-lucide="instagram" class="w-5 h-5"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[var(--primary)] transition-all">
+            <i data-lucide="linkedin" class="w-5 h-5"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Enlaces -->
+      <div>
+        <h4 class="font-black uppercase tracking-widest text-sm mb-8 text-[var(--secondary)]">Tienda</h4>
+        <ul class="space-y-4 opacity-70">
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">Alimento Premium</a></li>
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">Farmacia Veterinaria</a></li>
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">Tecnología Pet</a></li>
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">Wellness & Spa</a></li>
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">Ofertas</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="font-black uppercase tracking-widest text-sm mb-8 text-[var(--secondary)]">Servicios</h4>
+        <ul class="space-y-4 opacity-70">
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">Consultas</a></li>
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">Cirugía</a></li>
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">Imagenología</a></li>
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">Laboratorio</a></li>
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">Urgencias 24/7</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="font-black uppercase tracking-widest text-sm mb-8 text-[var(--secondary)]">Ayuda</h4>
+        <ul class="space-y-4 opacity-70">
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">Mi Cuenta</a></li>
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">Seguir Pedido</a></li>
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">Garantía</a></li>
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">Envíos</a></li>
+          <li><a href="#" class="hover:text-[var(--secondary)] transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8 py-12 border-y border-white/5">
+      <div class="flex items-start gap-4">
+        <div class="p-3 bg-white/5 rounded-xl text-[var(--secondary)]">
+          <i data-lucide="map-pin"></i>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest opacity-40 mb-1">Dirección</p>
+          <p class="font-bold">{negocio.direccion}</p>
+          <p class="text-sm opacity-60">{negocio.ciudad}, Chile</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start gap-4">
+        <div class="p-3 bg-white/5 rounded-xl text-[var(--secondary)]">
+          <i data-lucide="phone"></i>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest opacity-40 mb-1">Teléfonos</p>
+          <p class="font-bold">Tienda: {negocio.telefono_tienda}</p>
+          <p class="font-bold text-red-400">Urgencias: {negocio.telefono_urgencias}</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start gap-4">
+        <div class="p-3 bg-white/5 rounded-xl text-[var(--secondary)]">
+          <i data-lucide="clock"></i>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest opacity-40 mb-1">Horarios</p>
+          <p class="font-bold">Lun-Vie: {negocio.horario_semana}</p>
+          <p class="font-bold">Sáb: {negocio.horario_sabado}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="text-sm opacity-40 font-medium order-2 md:order-1">
+        © {currentYear} {negocio.nombre}. Todos los derechos reservados.
+      </div>
+      
+      <div class="flex flex-wrap justify-center gap-6 text-xs font-bold uppercase tracking-widest opacity-40 order-1 md:order-2">
+        <a href="#" class="hover:opacity-100 transition-opacity">Privacidad</a>
+        <a href="#" class="hover:opacity-100 transition-opacity">Términos</a>
+        <a href="#" class="hover:opacity-100 transition-opacity">Cookies</a>
+      </div>
+      
+      <div class="flex items-center gap-4 opacity-40 order-3">
+        <span class="text-[10px] font-bold uppercase tracking-widest">Pagos Seguros:</span>
+        <div class="flex gap-4">
+          <span class="font-black italic text-lg tracking-tighter">WebPay</span>
+          <span class="font-black italic text-lg tracking-tighter">VISA</span>
+          <span class="font-black italic text-lg tracking-tighter">MC</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

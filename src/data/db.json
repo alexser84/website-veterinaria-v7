@@ -1,0 +1,241 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Royal Canin Size Health Nutrition Medium Adult",
+            "marca": "Royal Canin",
+            "categoria": "Alimento Premium",
+            "precio": 64990,
+            "precio_original": 72990,
+            "descuento": 11,
+            "imagen": "/images/products/royal-canin-medium.webp",
+            "nuevo": false,
+            "bestseller": true,
+            "rating": 4.9,
+            "reviews": 124,
+            "specs": [
+                "15kg",
+                "Nutrición equilibrada",
+                "Para perros adultos"
+            ],
+            "stock": 25,
+            "envio_gratis": true
+        },
+        {
+            "id": 2,
+            "nombre": "Smart Feeder Pro - Alimentador Automático WiFi",
+            "marca": "PetTech Elite",
+            "categoria": "Tecnología",
+            "precio": 89990,
+            "precio_original": 110000,
+            "descuento": 18,
+            "imagen": "/images/products/smart-feeder.webp",
+            "nuevo": true,
+            "bestseller": false,
+            "rating": 4.8,
+            "reviews": 45,
+            "specs": [
+                "Control por App",
+                "Cámara HD",
+                "Programable"
+            ],
+            "stock": 8,
+            "envio_gratis": true
+        },
+        {
+            "id": 3,
+            "nombre": "Hill's Prescription Diet i/d Digestive Care",
+            "marca": "Hill's",
+            "categoria": "Farmacia",
+            "precio": 45990,
+            "precio_original": null,
+            "descuento": null,
+            "imagen": "/images/products/hills-digestive.webp",
+            "nuevo": false,
+            "bestseller": false,
+            "rating": 4.7,
+            "reviews": 89,
+            "specs": [
+                "1.8kg",
+                "Cuidado digestivo",
+                "Recomendado por veterinarios"
+            ],
+            "stock": 15,
+            "envio_gratis": false
+        },
+        {
+            "id": 4,
+            "nombre": "Cama Ortopédica Memory Foam Luxury",
+            "marca": "Luxury Pets",
+            "categoria": "Wellness",
+            "precio": 120000,
+            "precio_original": 145000,
+            "descuento": 17,
+            "imagen": "/images/products/orthopedic-bed.webp",
+            "nuevo": false,
+            "bestseller": true,
+            "rating": 5.0,
+            "reviews": 67,
+            "specs": [
+                "Talla XL",
+                "Memory Foam",
+                "Funda lavable"
+            ],
+            "stock": 5,
+            "envio_gratis": true
+        }
+    ],
+    "servicios": [
+        {
+            "id": "consulta",
+            "titulo": "Consulta Médica General",
+            "descripcion": "Evaluación completa con equipamiento diagnóstico de última generación",
+            "precio": 25000,
+            "tipo": "Esencial",
+            "features": [
+                "Examen físico completo",
+                "Análisis de signos vitales",
+                "Plan de tratamiento personalizado",
+                "Seguimiento post-consulta"
+            ]
+        },
+        {
+            "id": "medicina-interna",
+            "titulo": "Medicina Interna Especializada",
+            "descripcion": "Diagnóstico y tratamiento avanzado con tecnología de punta",
+            "precio": 85000,
+            "tipo": "Premium",
+            "featured": true,
+            "features": [
+                "Ecografía de alta resolución",
+                "Rayos X digitales",
+                "Análisis de laboratorio completo",
+                "Electrocardiograma",
+                "Hospitalización incluida"
+            ]
+        },
+        {
+            "id": "cirugia",
+            "titulo": "Cirugía Especializada",
+            "descripcion": "Quirófano equipado con anestesia inhalatoria y monitoreo continuo",
+            "precio": 150000,
+            "tipo": "Especializado",
+            "features": [
+                "Quirófano certificado",
+                "Anestesia inhalatoria",
+                "Monitoreo multiparamétrico",
+                "Recuperación supervisada"
+            ]
+        }
+    ],
+    "equipo": [
+        {
+            "id": 1,
+            "name": "Dra. Ana Martínez",
+            "firstName": "Ana",
+            "title": "Directora Médica & Cirujana",
+            "photo": "/images/team/dr1.webp",
+            "credentials": [
+                "Diplomado en Cirugía de Pequeños Animales",
+                "U. de Chile"
+            ],
+            "specialties": [
+                "Cirugía",
+                "Traumatología"
+            ],
+            "years": 12,
+            "cases": 500,
+            "disponible": true
+        },
+        {
+            "id": 2,
+            "name": "Dr. Carlos García",
+            "firstName": "Carlos",
+            "title": "Especialista en Medicina Interna",
+            "photo": "/images/team/dr2.webp",
+            "credentials": [
+                "Magíster en Medicina Veterinaria",
+                "U. Católica"
+            ],
+            "specialties": [
+                "Medicina Interna",
+                "Cardiología"
+            ],
+            "years": 10,
+            "cases": 1200,
+            "disponible": true
+        },
+        {
+            "id": 3,
+            "name": "Dra. Elena Soto",
+            "firstName": "Elena",
+            "title": "Especialista en Imagenología",
+            "photo": "/images/team/dr3.webp",
+            "credentials": [
+                "Certificación Internacional en Ecografía",
+                "ISVPS"
+            ],
+            "specialties": [
+                "Ecografía",
+                "Radiología"
+            ],
+            "years": 8,
+            "cases": 800,
+            "disponible": false
+        }
+    ],
+    "testimonios": [
+        {
+            "id": 1,
+            "author": "Maite Fernández",
+            "avatar": "/images/avatars/user1.webp",
+            "pet": "Bruno (Golden Retriever)",
+            "quote": "La atención en VetPro Elite es simplemente excepcional. El Dr. Carlos salvó a Bruno de un problema cardíaco complejo. No confiaría en nadie más.",
+            "rating": 5,
+            "city": "Las Condes",
+            "date": "10 Enero 2026",
+            "servicio": "Medicina Interna",
+            "verified": true
+        },
+        {
+            "id": 2,
+            "author": "Roberto Lagos",
+            "avatar": "/images/avatars/user2.webp",
+            "pet": "Mimi (Gata Persa)",
+            "quote": "Compro todo el alimento premium aquí. El envío express funciona de maravilla y la asesoría veterinaria por chat es muy útil.",
+            "rating": 5,
+            "city": "Providencia",
+            "date": "05 Feb 2026",
+            "servicio": "Tienda Online",
+            "verified": true
+        }
+    ],
+    "articulos": [
+        {
+            "id": 1,
+            "title": "Guía Completa de Medicina Preventiva para Cachorros 2026",
+            "excerpt": "Todo lo que necesitas saber sobre el calendario de vacunación, desparasitación y cuidados esenciales durante el primer año de vida.",
+            "image": "/images/blog/article1.webp",
+            "category": "Salud",
+            "date": "15 Feb 2026",
+            "author": {
+                "name": "Dr. Carlos García",
+                "avatar": "/images/team/dr2.webp"
+            },
+            "readTime": "12 min"
+        },
+        {
+            "id": 2,
+            "title": "Nutrición Premium: ¿Por qué invertir en una alimentación de calidad?",
+            "excerpt": "Análisis comparativo de los beneficios a largo plazo de una dieta balanceada en la longevidad de tu mascota.",
+            "image": "/images/blog/article2.webp",
+            "category": "Nutrición",
+            "date": "10 Feb 2026",
+            "author": {
+                "name": "Dra. Ana Martínez",
+                "avatar": "/images/team/dr1.webp"
+            },
+            "readTime": "8 min"
+        }
+    ]
+}

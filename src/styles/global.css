@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@layer base {
+    :root {
+        /* Corporate Palette (Default) */
+        --primary: #1e40af;
+        --secondary: #059669;
+        --accent: #0284c7;
+        --dark: #0f172a;
+        --light: #f8fafc;
+        --background: #ffffff;
+        --border: #e2e8f0;
+        --text-primary: #1e293b;
+        --text-secondary: #475569;
+
+        --font-heading: 'Inter', sans-serif;
+        --font-body: 'Inter', sans-serif;
+        --font-mono: 'IBM Plex Mono', monospace;
+    }
+
+    [data-theme="medical"] {
+        --primary: #0891b2;
+        --secondary: #06b6d4;
+        --accent: #ffffff;
+        --success: #10b981;
+        --dark: #0c4a6e;
+        --light: #ecfeff;
+        --background: #f0f9ff;
+        --border: #bae6fd;
+        --text-primary: #0c4a6e;
+        --text-secondary: #0369a1;
+
+        --font-heading: 'Manrope', sans-serif;
+        --font-body: 'Source Sans 3', sans-serif;
+        --font-mono: 'Roboto', sans-serif;
+    }
+
+    [data-theme="boutique"] {
+        --primary: #7c3aed;
+        --secondary: #a78bfa;
+        --accent: #f59e0b;
+        --dark: #3730a3;
+        --light: #f5f3ff;
+        --background: #fefce8;
+        --border: #ddd6fe;
+        --text-primary: #1f2937;
+        --text-secondary: #6b7280;
+        --rose-gold: #e0b1cb;
+
+        --font-heading: 'Cormorant Garamond', serif;
+        --font-body: 'Lato', sans-serif;
+    }
+
+    [data-theme="luxury"] {
+        --primary: #0f172a;
+        --secondary: #d4af37;
+        --accent: #b8860b;
+        --dark: #020617;
+        --light: #f8fafc;
+        --background: #ffffff;
+        --border: #e2e8f0;
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --champagne: #f7e7ce;
+
+        --font-heading: 'Playfair Display', serif;
+        --font-body: 'Lora', serif;
+    }
+
+    body {
+        @apply bg-[var(--background)] text-[var(--text-primary)];
+        font-family: var(--font-body);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-bold;
+        font-family: var(--font-heading);
+    }
+}
+
+@layer components {
+    .container {
+        @apply mx-auto px-4;
+        max-width: 1400px;
+    }
+
+    .card-professional {
+        @apply bg-white border border-[var(--border)] rounded-lg overflow-hidden transition-all duration-300;
+    }
+
+    .card-professional:hover {
+        @apply -translate-y-1 shadow-2xl;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .premium-badge {
+        background: linear-gradient(90deg,
+                transparent,
+                rgba(212, 175, 55, 0.3),
+                transparent);
+        background-size: 200% 100%;
+        animation: shine 3s infinite;
+    }
+
+    .btn-primary {
+        @apply bg-[var(--primary)] text-white px-6 py-3 rounded-lg font-semibold transition-all hover:opacity-90 active:scale-95;
+    }
+
+    .btn-secondary {
+        @apply bg-transparent border-2 border-[var(--primary)] text-[var(--primary)] px-6 py-3 rounded-lg font-semibold transition-all hover:bg-[var(--primary)] hover:text-white active:scale-95;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shine {
+    from {
+        background-position: -200% center;
+    }
+
+    to {
+        background-position: 200% center;
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}

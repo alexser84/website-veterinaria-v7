@@ -1,0 +1,111 @@
+---
+import db from '../data/db.json';
+import siteConfig from '../data/siteConfig.json';
+
+const { servicios } = db;
+const { negocio } = siteConfig;
+---
+
+<section id="servicios" class="py-24 bg-white">
+  <div class="container">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-[var(--primary)] font-bold uppercase tracking-widest text-sm">Servicios Especializados</span>
+      <h2 class="text-4xl md:text-5xl font-black text-[var(--dark)] mt-4 mb-6">Atención Médica de Vanguardia</h2>
+      <p class="text-lg text-[var(--text-secondary)]">Tecnología de punta y profesionales certificados para el cuidado integral de tu mascota en cada etapa de su vida.</p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8 mb-20">
+      {servicios.map((servicio) => (
+        <div class={`card-professional p-8 flex flex-col ${servicio.featured ? 'border-[var(--primary)] border-2 scale-105 relative bg-[var(--light)]/30' : ''}`}>
+          {servicio.featured && (
+            <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--primary)] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+              Recomendado
+            </span>
+          )}
+          
+          <div class="mb-8 flex justify-between items-start">
+            <div class={`w-16 h-16 rounded-2xl flex items-center justify-center ${servicio.featured ? 'bg-[var(--primary)] text-white' : 'bg-[var(--light)] text-[var(--primary)]'}`}>
+              <i data-lucide={servicio.id === 'consulta' ? 'stethoscope' : servicio.id === 'medicina-interna' ? 'activity' : 'scissors'} class="w-8 h-8"></i>
+            </div>
+            <span class={`text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded border ${servicio.featured ? 'border-[var(--primary)] text-[var(--primary)]' : 'border-gray-200 opacity-60'}`}>
+              {servicio.tipo}
+            </span>
+          </div>
+          
+          <h3 class="text-2xl font-bold mb-4">{servicio.titulo}</h3>
+          <p class="text-[var(--text-secondary)] mb-8 flex-grow">{servicio.descripcion}</p>
+          
+          <ul class="space-y-3 mb-8">
+            {servicio.features.map((feature) => (
+              <li class="flex items-center gap-2 text-sm">
+                <i data-lucide="check-circle" class="w-4 h-4 text-[var(--secondary)]"></i>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          
+          <div class="border-t border-[var(--border)] pt-8 flex items-baseline gap-2 mb-8">
+            <span class="text-sm opacity-60">Desde</span>
+            <span class="text-3xl font-black text-[var(--primary)]">
+              ${servicio.precio.toLocaleString('es-CL')}
+            </span>
+          </div>
+          
+          <div class="flex flex-col gap-3">
+            <a href="#" class={`btn-primary text-center py-3 ${servicio.featured ? '' : 'bg-[var(--dark)]'}`}>
+              Agendar Evaluación
+            </a>
+            <a href="#" class="btn-secondary text-center py-3 border-none hover:bg-[var(--light)] uppercase text-xs tracking-widest font-bold">
+              Ver Detalles
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Urgencias 24/7 -->
+    <div class="bg-[var(--dark)] rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-red-500/10 rounded-full blur-3xl -z-0"></div>
+      
+      <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center animate-pulse">
+              <i data-lucide="ambulance" class="w-8 h-8"></i>
+            </div>
+            <div>
+              <h3 class="text-3xl font-black">Centro de Urgencias 24/7</h3>
+              <p class="text-red-400 font-bold uppercase tracking-widest text-sm">Atención Médica Inmediata</p>
+            </div>
+          </div>
+          
+          <p class="text-lg opacity-80 mb-8 max-w-xl">
+             Contamos con veterinarios especialistas de guardia disponibles las 24 horas del día, todos los días del año. Equipamiento de emergencia completo listo para actuar.
+          </p>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex items-center gap-3">
+              <i data-lucide="clock" class="text-red-400"></i>
+              <span class="text-sm">Atención sin cita previa</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="shield" class="text-red-400"></i>
+              <span class="text-sm">Monitoreo crítico continuo</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex flex-col items-center lg:items-end gap-4">
+          <a href={`tel:${negocio.telefono_urgencias}`} class="bg-red-500 hover:bg-red-600 text-white w-full sm:w-auto px-10 py-5 rounded-2xl font-black text-2xl flex items-center justify-center gap-4 shadow-2xl transition-all hover:scale-105 active:scale-95">
+            <i data-lucide="phone" class="w-8 h-8"></i>
+            {negocio.telefono_urgencias}
+          </a>
+          <p class="font-bold opacity-60 flex items-center gap-2">
+            <span class="w-2 h-2 bg-red-500 rounded-full animate-ping"></span>
+            Línea Directa de Emergencias
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

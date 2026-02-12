@@ -1,0 +1,118 @@
+---
+import db from '../data/db.json';
+
+const { equipo } = db;
+---
+
+<section class="py-24 bg-white overflow-hidden">
+  <div class="container">
+    <!-- Trust Credentials Grid -->
+    <div class="grid md:grid-cols-4 gap-8 mb-32">
+      <div class="flex flex-col items-center text-center p-6">
+        <div class="w-16 h-16 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] flex items-center justify-center mb-6">
+          <i data-lucide="shield-check" class="w-8 h-8"></i>
+        </div>
+        <h3 class="font-bold text-xl mb-3">Certificaciones</h3>
+        <p class="text-sm text-[var(--text-secondary)]">Certificados por SAG, ISO 9001 y Colegio Médico Veterinario de Chile.</p>
+      </div>
+      
+      <div class="flex flex-col items-center text-center p-6 border-l border-[var(--border)]">
+        <div class="w-16 h-16 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] flex items-center justify-center mb-6">
+          <i data-lucide="award" class="w-8 h-8"></i>
+        </div>
+        <h3 class="font-bold text-xl mb-3">Garantía Premium</h3>
+        <p class="text-sm text-[var(--text-secondary)]">Todos nuestros productos cuentan con garantía oficial y devoluciones sin preguntas.</p>
+      </div>
+      
+      <div class="flex flex-col items-center text-center p-6 border-l border-[var(--border)]">
+        <div class="w-16 h-16 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] flex items-center justify-center mb-6">
+          <i data-lucide="truck" class="w-8 h-8"></i>
+        </div>
+        <h3 class="font-bold text-xl mb-3">Envío Seguro</h3>
+        <p class="text-sm text-[var(--text-secondary)]">Despacho express 24-48hrs. Envío gratis en compras superiores a $40.000.</p>
+      </div>
+      
+      <div class="flex flex-col items-center text-center p-6 border-l border-[var(--border)]">
+        <div class="w-16 h-16 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] flex items-center justify-center mb-6">
+          <i data-lucide="headphones" class="w-8 h-8"></i>
+        </div>
+        <h3 class="font-bold text-xl mb-3">Soporte Experto</h3>
+        <p class="text-sm text-[var(--text-secondary)]">Asesoría veterinaria gratuita disponible para ayudarte en todas tus compras.</p>
+      </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-[var(--primary)] font-bold uppercase tracking-widest text-sm">Nuestro Equipo</span>
+      <h2 class="text-4xl md:text-5xl font-black text-[var(--dark)] mt-4 mb-6">Profesionales de Clase Mundial</h2>
+      <p class="text-lg text-[var(--text-secondary)]">Médicos veterinarios especializados con formación internacional y años de compromiso con el bienestar animal.</p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-12">
+      {equipo.map((miembro) => (
+        <div class="group">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/5] mb-6 shadow-xl group-hover:shadow-[var(--primary)]/20 transition-all duration-500">
+            <img 
+              src={miembro.photo} 
+              alt={miembro.name} 
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-[var(--dark)]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            
+            {miembro.disponible && (
+              <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 rounded-full flex items-center gap-2 shadow-lg">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span class="text-[10px] font-bold uppercase tracking-tighter">Disponible Hoy</span>
+              </div>
+            )}
+            
+            <div class="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+              <div class="flex gap-2">
+                <button class="w-10 h-10 bg-white rounded-lg flex items-center justify-center hover:bg-[var(--primary)] hover:text-white transition-colors">
+                  <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </button>
+                <button class="w-10 h-10 bg-white rounded-lg flex items-center justify-center hover:bg-[var(--primary)] hover:text-white transition-colors">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-2xl font-bold text-[var(--dark)] mb-1">{miembro.name}</h3>
+            <p class="text-[var(--primary)] font-bold text-sm mb-4 uppercase tracking-wider">{miembro.title}</p>
+            
+            <div class="flex flex-wrap gap-2 mb-6">
+              {miembro.specialties.map(spec => (
+                <span class="bg-[var(--light)] text-[var(--dark)] text-[10px] font-bold px-2 py-1 rounded uppercase tracking-tighter italic">
+                  #{spec}
+                </span>
+              ))}
+            </div>
+            
+            <div class="flex gap-8 border-t border-[var(--border)] pt-4 mb-6">
+               <div class="text-center">
+                 <p class="text-xl font-black text-[var(--primary)] leading-none">{miembro.years}+</p>
+                 <p class="text-[10px] uppercase font-bold opacity-60">Años</p>
+               </div>
+               <div class="text-center">
+                 <p class="text-xl font-black text-[var(--primary)] leading-none">{miembro.cases}+</p>
+                 <p class="text-[10px] uppercase font-bold opacity-60">Casos</p>
+               </div>
+               <div class="text-center">
+                 <p class="text-xl font-black text-[var(--primary)] leading-none">99%</p>
+                 <p class="text-[10px] uppercase font-bold opacity-60">Éxito</p>
+               </div>
+            </div>
+            
+            <a href="#" class="btn-primary w-full text-center py-2 flex items-center justify-center gap-2">
+              <i data-lucide="calendar" class="w-4 h-4"></i>
+              Agendar con {miembro.firstName}
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+---
+import '../styles/global.css';
+import siteConfig from '../data/siteConfig.json';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = siteConfig.negocio.tagline } = Astro.props;
+const theme = siteConfig.estilo.paleta;
+
+// Mapping fonts needed per theme
+const fontFamilies = {
+  corporate: 'Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500',
+  medical: 'Manrope:wght@700;800&family=Source+Sans+3:wght@400;600&family=Roboto:wght@500',
+  boutique: 'Cormorant+Garamond:wght@600;700&family=Montserrat:wght@500;600&family=Lato:wght@400;500',
+  luxury: 'Playfair+Display:wght@700;900&family=Cinzel:wght@400;500&family=Lora:wght@400;500'
+};
+
+const selectedFonts = fontFamilies[theme] || fontFamilies.corporate;
+---
+
+<!doctype html>
+<html lang="es" data-theme={theme}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | {siteConfig.negocio.nombre}</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href={`https://fonts.googleapis.com/css2?family=${selectedFonts}&display=swap`} rel="stylesheet" />
+    
+    <!-- Lucide Icons (CDN for simplicity in demo) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+	</head>
+	<body class="min-h-screen flex flex-col">
+		<slot />
+    
+    <script>
+      // Initialize Lucide icons
+      declare const lucide: any;
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    </script>
+	</body>
+</html>

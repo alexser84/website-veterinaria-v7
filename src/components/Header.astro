@@ -1,0 +1,140 @@
+---
+import siteConfig from '../data/siteConfig.json';
+
+const { negocio } = siteConfig;
+---
+
+<header class="w-full z-50">
+  <!-- Top Bar -->
+  <div class="bg-[var(--dark)] text-white py-2 text-sm hidden md:block">
+    <div class="container flex justify-between items-center">
+      <div class="flex gap-6">
+        <div class="flex items-center gap-2">
+          <i data-lucide="shield-check" class="w-4 h-4 text-[var(--secondary)]"></i>
+          <span>Certificado {negocio.certificaciones[0]}</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i data-lucide="truck" class="w-4 h-4 text-[var(--secondary)]"></i>
+          <span>Envío Express Disponible</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i data-lucide="award" class="w-4 h-4 text-[var(--secondary)]"></i>
+          <span>{negocio.años_experiencia} Años de Excelencia</span>
+        </div>
+      </div>
+      
+      <div class="flex gap-6 items-center">
+        <a href={`tel:${negocio.telefono}`} class="flex items-center gap-2 hover:text-[var(--secondary)] transition-colors">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          {negocio.telefono}
+        </a>
+        <div class="flex items-center gap-2">
+          <span class="opacity-70">ES</span>
+          <i data-lucide="chevron-down" class="w-3 h-3"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Nav -->
+  <nav class="bg-white border-b border-[var(--border)] sticky top-0 shadow-sm">
+    <div class="container flex justify-between items-center py-4">
+      <!-- Logo -->
+      <a href="/" class="flex flex-col">
+        <span class="text-2xl font-black text-[var(--primary)] leading-tight tracking-tighter">
+          {negocio.nombre.split(' ')[0]}<span class="text-[var(--secondary)]">{negocio.nombre.split(' ').slice(1).join(' ')}</span>
+        </span>
+        <span class="text-[10px] uppercase tracking-widest font-bold opacity-60">
+          {negocio.tagline}
+        </span>
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center gap-8">
+        <div class="relative group">
+          <button class="flex items-center gap-1 font-semibold hover:text-[var(--primary)] py-2">
+            Tienda <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <!-- Mega Menu Tienda (Simplified for this version) -->
+          <div class="absolute top-full left-0 w-[600px] bg-white shadow-2xl border border-[var(--border)] rounded-xl p-6 opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 grid grid-cols-3 gap-8">
+            <div>
+              <h4 class="font-bold text-[var(--primary)] mb-4 uppercase text-xs tracking-wider">Por Categoría</h4>
+              <ul class="space-y-2">
+                <li><a href="#" class="hover:text-[var(--primary)] transition-colors">Alimento Premium</a></li>
+                <li><a href="#" class="hover:text-[var(--primary)] transition-colors">Farmacia Veterinaria</a></li>
+                <li><a href="#" class="hover:text-[var(--primary)] transition-colors">Tecnología Pet</a></li>
+                <li><a href="#" class="hover:text-[var(--primary)] transition-colors">Wellness & Spa</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold text-[var(--primary)] mb-4 uppercase text-xs tracking-wider">Por Especie</h4>
+              <ul class="space-y-2">
+                <li><a href="#" class="hover:text-[var(--primary)] transition-colors">Perros</a></li>
+                <li><a href="#" class="hover:text-[var(--primary)] transition-colors">Gatos</a></li>
+                <li><a href="#" class="hover:text-[var(--primary)] transition-colors">Aves Exóticas</a></li>
+                <li><a href="#" class="hover:text-[var(--primary)] transition-colors">Reptiles</a></li>
+              </ul>
+            </div>
+            <div class="bg-[var(--light)] p-4 rounded-lg">
+              <span class="bg-[var(--secondary)] text-white text-[10px] px-2 py-1 rounded-full font-bold">DESTACADO</span>
+              <p class="font-bold mt-2 leading-tight">Smart Feeder Pro</p>
+              <p class="text-sm opacity-70 mt-1">Vuelve el stock del alimentador más avanzado.</p>
+              <a href="#" class="text-[var(--primary)] font-bold text-sm mt-2 block">Ver más →</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative group">
+          <button class="flex items-center gap-1 font-semibold hover:text-[var(--primary)] py-2">
+            Servicios <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div class="absolute top-full left-0 w-[400px] bg-white shadow-2xl border border-[var(--border)] rounded-xl p-6 opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+            <div class="grid grid-cols-1 gap-4">
+              <a href="#" class="flex gap-4 p-3 rounded-lg hover:bg-[var(--light)] transition-colors">
+                <i data-lucide="stethoscope" class="text-[var(--primary)]"></i>
+                <div>
+                  <p class="font-bold">Consulta General</p>
+                  <p class="text-xs opacity-60">Evaluación preventiva y diagnóstico</p>
+                </div>
+              </a>
+              <a href="#" class="flex gap-4 p-3 rounded-lg hover:bg-[var(--light)] transition-colors">
+                <i data-lucide="activity" class="text-[var(--primary)]"></i>
+                <div>
+                  <p class="font-bold">Urgencias 24/7</p>
+                  <p class="text-xs opacity-60">Atención inmediata sin cita previa</p>
+                </div>
+              </a>
+              <a href="#" class="flex gap-4 p-3 rounded-lg hover:bg-[var(--light)] transition-colors">
+                <i data-lucide="scissors" class="text-[var(--primary)]"></i>
+                <div>
+                  <p class="font-bold">Cirugía</p>
+                  <p class="text-xs opacity-60">Quirófano de alta complejidad</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <a href="#" class="font-semibold hover:text-[var(--primary)]">Nosotros</a>
+        <a href="#" class="font-semibold hover:text-[var(--primary)]">Contacto</a>
+      </div>
+      
+      <!-- Actions -->
+      <div class="flex items-center gap-4">
+        <button class="p-2 hover:bg-[var(--light)] rounded-full transition-colors relative">
+          <i data-lucide="search" class="w-5 h-5"></i>
+        </button>
+        <button class="p-2 hover:bg-[var(--light)] rounded-full transition-colors relative">
+          <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+          <span class="absolute top-0 right-0 bg-[var(--primary)] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+        </button>
+        <a href="#" class="hidden sm:block btn-primary text-sm py-2 px-4 whitespace-nowrap">
+          Agendar Cita
+        </a>
+        <button class="lg:hidden p-2">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>

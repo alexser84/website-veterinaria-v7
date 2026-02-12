@@ -36,18 +36,31 @@ const selectedFonts = fontFamilies[theme] || fontFamilies.corporate;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href={`https://fonts.googleapis.com/css2?family=${selectedFonts}&display=swap`} rel="stylesheet" />
     
-    <!-- Lucide Icons (CDN for simplicity in demo) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 	</head>
 	<body class="min-h-screen flex flex-col">
 		<slot />
     
-    <script>
-      // Initialize Lucide icons
-      declare const lucide: any;
-      if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
+    <script is:inline>
+      function initIcons() {
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
       }
+      
+      // Initialize on load
+      window.addEventListener('load', initIcons);
+      
+      // Fallback: check periodically
+      const interval = setInterval(() => {
+        if (typeof lucide !== 'undefined') {
+          initIcons();
+          clearInterval(interval);
+        }
+      }, 100);
+      
+      setTimeout(() => clearInterval(interval), 5000);
     </script>
 	</body>
 </html>

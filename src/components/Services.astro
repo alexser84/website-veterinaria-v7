@@ -16,7 +16,7 @@ const { negocio } = siteConfig;
     
     <div class="grid md:grid-cols-3 gap-8 mb-20">
       {servicios.map((servicio) => (
-        <div class={`card-professional p-8 flex flex-col ${servicio.featured ? 'border-[var(--primary)] border-2 scale-105 relative bg-[var(--light)]/30' : ''}`}>
+        <div class={`card-professional p-8 flex flex-col ${servicio.featured ? 'border-[var(--primary)] border-2 scale-105 relative bg-[var(--light)]/30 overflow-visible' : ''}`}>
           {servicio.featured && (
             <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--primary)] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
               Recomendado
